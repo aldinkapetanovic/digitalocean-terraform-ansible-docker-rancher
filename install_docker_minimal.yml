@@ -1,0 +1,22 @@
+---
+- name: Minimal Docker installation
+  hosts: dockerhost
+  become: true
+  tasks:
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install docker.io and docker-compose-v2 and zsh
+      ansible.builtin.apt:
+        name:
+          - zsh
+          - docker.io
+          - docker-compose-v2
+        state: present
+
+    - name: Ensure Docker service is running
+      ansible.builtin.systemd:
+        name: docker
+        enabled: true
+        state: started
