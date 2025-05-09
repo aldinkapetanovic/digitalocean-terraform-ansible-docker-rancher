@@ -10,7 +10,7 @@ provider "digitalocean" {
   token = var.do_token
 }
 
-resource "digitalocean_droplet" "web" {
+resource "digitalocean_droplet" "docker-host" {
   image    = "ubuntu-24-04-x64"
   name     = "docker-host"
   region   = "fra1"
@@ -19,7 +19,7 @@ resource "digitalocean_droplet" "web" {
 }
 
 output "droplet_ip" {
-  value = digitalocean_droplet.web.ipv4_address
+  value = digitalocean_droplet.docker-host.ipv4_address
 }
 
 variable "do_token" {}
