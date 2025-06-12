@@ -14,7 +14,7 @@ resource "digitalocean_droplet" "docker-host" {
   image    = "ubuntu-24-04-x64"
   name     = "docker-host"
   region   = "fra1"
-  size     = "s-2vcpu-4gb"
+  size     = "s-4vcpu-8gb"
   ssh_keys = [var.ssh_key_id]
 }
 
