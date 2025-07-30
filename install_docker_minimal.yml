@@ -1,6 +1,7 @@
 ---
 - name: Minimal Docker installation
   hosts: dockerhost
+  # hosts: all
   become: true
   tasks:
     - name: Update apt cache
